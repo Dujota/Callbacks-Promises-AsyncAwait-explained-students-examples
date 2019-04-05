@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(
             publisher => {
               const book2 = { title: 'Metaprogramming Elixir', publisher: 'Pragmatic Bookshelf' };
-              console.log(book2);
+              console.log(`${publisher}: ${book2.title}`);
             },
             1500,
             book.publisher

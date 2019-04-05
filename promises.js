@@ -59,7 +59,7 @@ getIds
   })
   .then(book => {
     console.log(book);
-    return getRelated('Pragmatic Bookshelf');
+    return getRelated('Pragmatic Bookshelf'); // here we pass a parameter which is the publisher to the function abd access that on the next function
   })
   .then(publisher => {
     console.log(publisher);
