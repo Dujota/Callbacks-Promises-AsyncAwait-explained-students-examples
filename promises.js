@@ -25,7 +25,43 @@ const getIds = new Promise((resolve, reject) => {
   }, 1500);
 });
 
+const getBook = bookId =>
+  new Promise((resovle, reject) => {
+    setTimeout(
+      id => {
+        const book = { title: 'Learn Functional Programming with Elixir', publisher: 'Pragmatic Bookshelf' };
+        resovle(`${id}: ${book.title}`);
+      },
+      1500,
+      bookId // use the 3rd argument to pass in the variable to the timeout
+    );
+  });
+
+const getRelated = publisher =>
+  new Promise((resolve, reject) => {
+    setTimeout(
+      publisher => {
+        const book2 = { title: 'Metaprogramming Elixir', publisher: 'Pragmatic Bookshelf' };
+        resolve(`${publisher} : ${book2.title}`);
+      },
+      1500,
+      publisher
+    );
+  });
+
 // Consume the promise with the then() & catch() which adds an event handler to the promise
-getIds.then(id => {
-  console.log(id);
-});
+getIds
+  .then(id => {
+    console.log(id);
+    // getBook(id[2]).then(); we could do this here, but that doesnt fix callback hell, instead we use promise chain instead we return a promise so we can chain on to it.
+
+    return getBook(id[3]); // / we have to return a value or else the .next will not have access to the next value
+  })
+  .then(book => {
+    console.log(book);
+    return getRelated('Pragmatic Bookshelf');
+  })
+  .then(publisher => {
+    console.log(publisher);
+  })
+  .catch(error => console.log('Error', error)); // since timers cant fail, it will not throw error, but try to comment this out and set resolved to reject
