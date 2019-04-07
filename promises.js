@@ -4,7 +4,7 @@ DEFENITION: What is a promise?
  - Determines what happens after the event has happened
  - implements the concept of a future value we're expecting
 
-
+\
  PROMISE STATES:
  Pendding ---> event happens --->  Settled / Resolved  ( fulfilled or rejected)
   use callbacks for fullfilment or rejection of promises
