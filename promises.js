@@ -30,6 +30,7 @@ const getBook = bookId =>
     setTimeout(
       id => {
         const book = { title: 'Learn Functional Programming with Elixir', publisher: 'Pragmatic Bookshelf' };
+
         resovle(`${id}: ${book.title}`);
       },
       1500,

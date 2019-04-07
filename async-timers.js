@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Traditional way of dealing with Asyncronous code.
    Let's build a resource reader, (simulate loading data from a remote server ) */
 
-  function getRecipe() {
+  function getBook() {
     // simulate the ajax call
 
     // first get a couple of ids
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const booksId = [434, 343, 645, 898];
       console.log(booksId);
 
-      // then get some recipes
+      // then get some books
       setTimeout(
         id => {
           const book = { title: 'Learn Functional Programming with Elixir', publisher: 'Pragmatic Bookshelf' };
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1500);
   }
 
-  getRecipe();
+  getBook();
 
   // This is an example of callback hell, which is basically chain of nested callbacks
 });
